@@ -15,7 +15,7 @@ async function copyDir(old, copy) {
 
     if (!insideOld.find((file) => file.name === entry.name)) {
       await fs.unlink(delleteCheck);
-      console.log('\nfile ' + entry.name + " will be deletted");
+      console.log('\nfile "' + entry.name + '" will be deletted');
     }
   }
 
