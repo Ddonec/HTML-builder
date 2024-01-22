@@ -1,9 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-fs.readFile(path.resolve(__dirname, 'text.txt'), 'UTF-8', (error, text) => {
-  if (error) {
-    throw error;
-  }
-  console.log(text);
+const way = path.resolve(__dirname, 'text.txt');
+const stream = fs.createReadStream(way, 'utf-8');
+
+process.stdout.write('\n');
+stream.on('end', () => {
+  process.stdout.write('\n');
 });
+
+stream.pipe(process.stdout);
