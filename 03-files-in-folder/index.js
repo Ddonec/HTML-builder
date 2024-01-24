@@ -12,8 +12,8 @@ async function inspectFolder(dir) {
   for (const filePath of onlyFiles) {
     const fileName = path.basename(filePath);
     const fileExtension = path.extname(filePath);
-    const fileSize = (stats.size / 1024).toFixed(3);
     const stats = await fs.stat(filePath);
+    const fileSize = (stats.size / 1024).toFixed(3);
 
     console.log(fileName + ' - ' + fileExtension + ' - ' + fileSize + ' kb');
   }
